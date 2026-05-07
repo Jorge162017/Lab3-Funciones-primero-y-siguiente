@@ -8,7 +8,7 @@ from gramatica import (
     mostrar_gramatica,
     mostrar_simbolos,
 )
-
+from primero import calcular_primero, mostrar_primero
 
 
 def main():
@@ -22,20 +22,18 @@ def main():
         print("\n[!] No se ingresó ninguna gramática.")
         return
 
-    # Puntos 1 y 2: identificar símbolos
+    # Identificar símbolos
     no_terminales = obtener_no_terminales(gramatica)
     terminales = obtener_terminales(gramatica, no_terminales)
 
     mostrar_gramatica(gramatica)
     mostrar_simbolos(no_terminales, terminales)
 
-    # Punto 3: conjuntos Primero
+    # Conjuntos Primero
     primero = calcular_primero(gramatica, no_terminales)
     mostrar_primero(primero)
 
-    # Punto 4: conjuntos Siguiente
-    siguiente = calcular_siguiente(gramatica, no_terminales, primero, simbolo_inicial)
-    mostrar_siguiente(siguiente)
+    # Conjuntos Siguiente
 
     print("\n" + "=" * 40)
 
